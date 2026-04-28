@@ -3,39 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATRIX ID | @your_numer0logist</title>
+    <title>MATRIX ID MAX | Брынских Екатерина</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        body { background-color: #0a0a0a; color: #00f2ff; font-family: 'Segoe UI', Roboto, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        .container { max-width: 400px; text-align: center; border: 1px solid #333; padding: 20px; background: #111; border-radius: 15px; box-shadow: 0 0 30px rgba(0,242,255,0.2); }
-        h1 { font-size: 26px; letter-spacing: 4px; color: #fff; margin-bottom: 5px; text-transform: uppercase; }
-        .subtitle { font-size: 10px; color: #00f2ff; letter-spacing: 2px; margin-bottom: 25px; opacity: 0.7; }
-        input { background: #000; border: 1px solid #333; border-bottom: 2px solid #00f2ff; color: #00f2ff; padding: 15px; font-size: 20px; text-align: center; width: 80%; margin-bottom: 20px; outline: none; border-radius: 5px; }
-        button { background: #00f2ff; color: #000; border: none; padding: 15px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; border-radius: 5px; transition: 0.3s; }
-        button:hover { background: #fff; transform: scale(1.02); }
-        #capture-area { background: #111; padding: 20px; border-radius: 10px; margin-top: 10px; }
-        .matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; margin: 20px auto; }
-        .cell { border: 1px solid rgba(0,242,255,0.3); height: 85px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(255,255,255,0.02); }
-        .cell-label { font-size: 9px; color: #555; text-transform: uppercase; margin-bottom: 5px; }
-        .cell-value { font-size: 20px; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(0,242,255,0.5); }
-        .work-numbers { font-size: 14px; color: #00f2ff; margin-bottom: 15px; font-weight: 600; letter-spacing: 1px; }
-        .footer-info { margin-top: 20px; border-top: 1px solid #222; padding-top: 15px; }
-        .author-link { color: #00f2ff; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid #00f2ff; padding: 8px 20px; border-radius: 20px; display: inline-block; margin-bottom: 12px; transition: 0.3s; }
-        .author-link:hover { background: #00f2ff; color: #000; }
-        .copyright-text { font-size: 9px; color: #444; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.5px; }
+        :root {
+            --primary-violet: #8a2be2; 
+            --neon-lilac: #df00ff;   
+            --bg-dark: #05000a; /* Очень темный фиолетовый для фона */
+            --bg-accent: #1a0033; /* Акцент для градиента */
+            --text-color: #ffffff; 
+        }
+
+        body { 
+            /* Красивый градиентный фон */
+            background: radial-gradient(circle at center, var(--bg-accent) 0%, var(--bg-dark) 100%);
+            background-attachment: fixed;
+            color: var(--text-color); 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px; 
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container { 
+            max-width: 400px; 
+            text-align: center; 
+            border: 1px solid rgba(223, 0, 255, 0.3); 
+            padding: 25px; 
+            background: rgba(10, 10, 10, 0.8); /* Эффект матового стекла */
+            backdrop-filter: blur(10px);
+            border-radius: 30px; 
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(138, 43, 226, 0.2); 
+            margin-bottom: 20px;
+        }
+
+        h1 { 
+            font-size: 32px; 
+            letter-spacing: 6px; 
+            background: linear-gradient(to bottom, #fff, var(--neon-lilac));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 5px 0; 
+            text-transform: uppercase; 
+        }
+
+        .author-status {
+            font-size: 11px;
+            color: var(--neon-lilac);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(223, 0, 255, 0.6);
+        }
+
+        input { 
+            background: rgba(0, 0, 0, 0.6); 
+            border: 2px solid var(--primary-violet); 
+            color: var(--neon-lilac); 
+            padding: 18px; 
+            font-size: 22px; 
+            text-align: center; 
+            width: 85%; 
+            outline: none; 
+            border-radius: 15px; 
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.1);
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--neon-lilac);
+            box-shadow: 0 0 20px rgba(223, 0, 255, 0.3);
+        }
+
+        .calc-btn { 
+            background: linear-gradient(90deg, var(--primary-violet), var(--neon-lilac)); 
+            color: #fff; 
+            border: none; 
+            padding: 20px; 
+            font-weight: 900; 
+            cursor: pointer; 
+            width: 100%; 
+            text-transform: uppercase; 
+            border-radius: 15px; 
+            transition: 0.4s; 
+            font-size: 16px;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .calc-btn:hover { 
+            filter: brightness(1.2);
+            transform: scale(1.02);
+        }
+
+        #capture-area { 
+            background: rgba(0, 0, 0, 0.3); 
+            padding: 25px; 
+            border-radius: 20px; 
+            margin-top: 15px; 
+        }
+
+        .work-numbers { 
+            font-size: 16px; 
+            color: var(--neon-lilac); 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(223, 0, 255, 0.4);
+        }
+
+        .matrix { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 12px; 
+            width: 320px; 
+            margin: 25px auto; 
+        }
+
+        .cell { 
+            border: 1.5px solid rgba(223, 0, 255, 0.4); 
+            height: 95px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            border-radius: 18px; 
+            background: rgba(255, 255, 255, 0.03); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cell-label { 
+            font-size: 10px; 
+            color: #888; 
+            text-transform: uppercase; 
+            margin-bottom: 8px; 
+        }
+
+        .cell-value { 
+            font-size: 24px; 
+            font-weight: 900; 
+            color: #fff; 
+            text-shadow: 0 0 15px var(--neon-lilac); 
+        }
+
+        .property-info { 
+            margin-top: 25px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            padding-top: 20px; 
+            font-size: 10px; 
+            color: #666; 
+            line-height: 1.6; 
+        }
+
+        .author-tg {
+            display: block;
+            color: var(--neon-lilac);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(223, 0, 255, 0.3);
+        }
+
+        .download-btn { 
+            background: transparent; 
+            color: #555; 
+            border: 1px solid #333;
+            padding: 12px; 
+            font-size: 11px; 
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .download-btn:hover { color: var(--neon-lilac); border-color: var(--neon-lilac); background: rgba(223,0,255,0.05); }
+
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>MATRIX ID</h1>
-    <div class="subtitle">Personal Digital Analysis</div>
+    <div class="author-status">АВТОРСКИЙ КАЛЬКУЛЯТОР БРЫНСКИХ ЕКАТЕРИНЫ</div>
     
     <input type="text" id="birthDate" placeholder="ДД.ММ.ГГГГ">
-    <button onclick="calculate()">Запустить расчет</button>
+    <button class="calc-btn" onclick="calculate()">Открыть тайну чисел</button>
     
     <div id="capture-area">
-        <div class="work-numbers" id="workNums">Доп. числа: —</div>
+        <div class="work-numbers" id="workNums">Числа судьбы: —</div>
+        
         <div class="matrix">
             <div class="cell"><span class="cell-label">Характер</span><span class="cell-value" id="c1">-</span></div>
             <div class="cell"><span class="cell-label">Здоровье</span><span class="cell-value" id="c4">-</span></div>
@@ -48,23 +212,21 @@
             <div class="cell"><span class="cell-label">Память</span><span class="cell-value" id="c9">-</span></div>
         </div>
         
-        <div class="footer-info">
-            <a href="https://t.me/your_numer0logist" class="author-link" target="_blank">@your_numer0logist</a>
-            <div class="copyright-text">
-                © Интеллектуальная собственность автора<br>
-                Все права защищены. Копирование запрещено.
-            </div>
+        <div class="property-info">
+            © <strong>Интеллектуальная собственность Брынских Екатерина.</strong><br>
+            Все права защищены. Копирование запрещено.<br>
+            <a href="https://t.me/your_numer0logist" class="author-tg" target="_blank">@your_numer0logist</a>
         </div>
     </div>
     
-    <button style="background: #222; color: #fff; margin-top: 20px; font-size: 12px;" onclick="takeScreenshot()">Сохранить результат в PNG</button>
+    <button class="download-btn" onclick="takeScreenshot()">Сохранить анализ (PNG)</button>
 </div>
 
 <script>
     function calculate() {
         const input = document.getElementById('birthDate').value;
         const cleanDate = input.replace(/\D/g, '');
-        if (cleanDate.length !== 8) { alert("Введите дату полностью: ДДММГГГГ"); return; }
+        if (cleanDate.length !== 8) { alert("Пожалуйста, введите дату полностью."); return; }
         
         const day = cleanDate.substring(0, 2);
         const d1 = parseInt(day[0]);
@@ -77,7 +239,7 @@
         const n3 = n1 - (dayFirstDigit * 2);
         const n4 = String(Math.abs(n3)).split('').reduce((a, b) => Number(a) + Number(b), 0);
         
-        document.getElementById('workNums').innerText = `Числа: ${n1}.${n2} | ${n3}.${n4}`;
+        document.getElementById('workNums').innerText = `Код: ${n1}.${n2} | ${n3}.${n4}`;
         
         const finalString = cleanDate + n1 + n2 + n3 + n4;
         for (let i = 1; i <= 9; i++) {
@@ -85,11 +247,16 @@
             document.getElementById('c' + i).innerText = count || 'нет';
         }
     }
+    
     function takeScreenshot() {
         const area = document.getElementById('capture-area');
-        html2canvas(area, {backgroundColor: "#111", scale: 2}).then(canvas => {
+        html2canvas(area, {
+            backgroundColor: "#05000a", 
+            scale: 3,
+            borderRadius: 20
+        }).then(canvas => {
             let link = document.createElement('a');
-            link.download = 'matrix_analysis.png';
+            link.download = 'numerology_matrix.png';
             link.href = canvas.toDataURL();
             link.click();
         });
