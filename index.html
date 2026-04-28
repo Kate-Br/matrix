@@ -3,71 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MATRIX ID</title>
+    <title>MATRIX ID | @your_numer0logist</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        body { background-color: #0a0a0a; color: #00f2ff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        .container { max-width: 400px; text-align: center; border: 1px solid #333; padding: 20px; background: #111; }
-        h1 { font-size: 24px; letter-spacing: 3px; color: #fff; }
-        input { background: #000; border: 1px solid #00f2ff; color: #00f2ff; padding: 12px; font-size: 18px; text-align: center; width: 90%; margin-bottom: 20px; outline: none;}
-        button { background: #00f2ff; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; margin: 5px 0; }
-        #capture-area { background: #111; padding: 15px; border: 1px solid #222; margin-top: 10px; }
-        .matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; width: 300px; margin: 15px auto; }
-        .cell { border: 1px solid #00f2ff; height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .cell-label { font-size: 10px; color: #555; margin-bottom: 5px; }
-        .cell-value { font-size: 18px; font-weight: bold; color: #fff; }
-        .work-numbers { font-size: 13px; color: #00f2ff; opacity: 0.6; margin-bottom: 10px; }
-        .footer { font-size: 11px; color: #444; margin-top: 15px; border-top: 1px solid #222; padding-top: 10px; }
+        body { background-color: #0a0a0a; color: #00f2ff; font-family: 'Segoe UI', Roboto, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { max-width: 400px; text-align: center; border: 1px solid #333; padding: 20px; background: #111; border-radius: 15px; box-shadow: 0 0 30px rgba(0,242,255,0.2); }
+        h1 { font-size: 26px; letter-spacing: 4px; color: #fff; margin-bottom: 5px; text-transform: uppercase; }
+        .subtitle { font-size: 10px; color: #00f2ff; letter-spacing: 2px; margin-bottom: 25px; opacity: 0.7; }
+        input { background: #000; border: 1px solid #333; border-bottom: 2px solid #00f2ff; color: #00f2ff; padding: 15px; font-size: 20px; text-align: center; width: 80%; margin-bottom: 20px; outline: none; border-radius: 5px; }
+        button { background: #00f2ff; color: #000; border: none; padding: 15px; font-weight: bold; cursor: pointer; width: 100%; text-transform: uppercase; border-radius: 5px; transition: 0.3s; }
+        button:hover { background: #fff; transform: scale(1.02); }
+        #capture-area { background: #111; padding: 20px; border-radius: 10px; margin-top: 10px; }
+        .matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 300px; margin: 20px auto; }
+        .cell { border: 1px solid rgba(0,242,255,0.3); height: 85px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px; background: rgba(255,255,255,0.02); }
+        .cell-label { font-size: 9px; color: #555; text-transform: uppercase; margin-bottom: 5px; }
+        .cell-value { font-size: 20px; font-weight: bold; color: #fff; text-shadow: 0 0 10px rgba(0,242,255,0.5); }
+        .work-numbers { font-size: 14px; color: #00f2ff; margin-bottom: 15px; font-weight: 600; letter-spacing: 1px; }
+        .footer-info { margin-top: 20px; border-top: 1px solid #222; padding-top: 15px; }
+        .author-link { color: #00f2ff; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid #00f2ff; padding: 8px 20px; border-radius: 20px; display: inline-block; margin-bottom: 12px; transition: 0.3s; }
+        .author-link:hover { background: #00f2ff; color: #000; }
+        .copyright-text { font-size: 9px; color: #444; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
+
 <div class="container">
     <h1>MATRIX ID</h1>
-    <p style="font-size: 12px;">Введите дату (например: 14.05.1990)</p>
+    <div class="subtitle">Personal Digital Analysis</div>
+    
     <input type="text" id="birthDate" placeholder="ДД.ММ.ГГГГ">
-    <button onclick="calculate()">Рассчитать</button>
+    <button onclick="calculate()">Запустить расчет</button>
+    
     <div id="capture-area">
-        <div class="work-numbers" id="workNums">Доп. числа: -</div>
+        <div class="work-numbers" id="workNums">Доп. числа: —</div>
         <div class="matrix">
-            <div class="cell"><span class="cell-label">1. Характер</span><span class="cell-value" id="c1">-</span></div>
-            <div class="cell"><span class="cell-label">4. Здоровье</span><span class="cell-value" id="c4">-</span></div>
-            <div class="cell"><span class="cell-label">7. Удача</span><span class="cell-value" id="c7">-</span></div>
-            <div class="cell"><span class="cell-label">2. Энергия</span><span class="cell-value" id="c2">-</span></div>
-            <div class="cell"><span class="cell-label">5. Логика</span><span class="cell-value" id="c5">-</span></div>
-            <div class="cell"><span class="cell-label">8. Долг</span><span class="cell-value" id="c8">-</span></div>
-            <div class="cell"><span class="cell-label">3. Интерес</span><span class="cell-value" id="c3">-</span></div>
-            <div class="cell"><span class="cell-label">6. Труд</span><span class="cell-value" id="c6">-</span></div>
-            <div class="cell"><span class="cell-label">9. Память</span><span class="cell-value" id="c9">-</span></div>
+            <div class="cell"><span class="cell-label">Характер</span><span class="cell-value" id="c1">-</span></div>
+            <div class="cell"><span class="cell-label">Здоровье</span><span class="cell-value" id="c4">-</span></div>
+            <div class="cell"><span class="cell-label">Удача</span><span class="cell-value" id="c7">-</span></div>
+            <div class="cell"><span class="cell-label">Энергия</span><span class="cell-value" id="c2">-</span></div>
+            <div class="cell"><span class="cell-label">Логика</span><span class="cell-value" id="c5">-</span></div>
+            <div class="cell"><span class="cell-label">Долг</span><span class="cell-value" id="c8">-</span></div>
+            <div class="cell"><span class="cell-label">Интерес</span><span class="cell-value" id="c3">-</span></div>
+            <div class="cell"><span class="cell-label">Труд</span><span class="cell-value" id="c6">-</span></div>
+            <div class="cell"><span class="cell-label">Память</span><span class="cell-value" id="c9">-</span></div>
         </div>
-        <div class="footer">t.me/ТВОЙ_КАНАЛ</div>
+        
+        <div class="footer-info">
+            <a href="https://t.me/your_numer0logist" class="author-link" target="_blank">@your_numer0logist</a>
+            <div class="copyright-text">
+                © Интеллектуальная собственность автора<br>
+                Все права защищены. Копирование запрещено.
+            </div>
+        </div>
     </div>
-    <button style="background: #222; color: #fff;" onclick="takeScreenshot()">Скачать скриншот</button>
+    
+    <button style="background: #222; color: #fff; margin-top: 20px; font-size: 12px;" onclick="takeScreenshot()">Сохранить результат в PNG</button>
 </div>
+
 <script>
     function calculate() {
         const input = document.getElementById('birthDate').value;
         const cleanDate = input.replace(/\D/g, '');
         if (cleanDate.length !== 8) { alert("Введите дату полностью: ДДММГГГГ"); return; }
+        
         const day = cleanDate.substring(0, 2);
         const d1 = parseInt(day[0]);
         const d2 = parseInt(day[1]);
         const dayFirstDigit = d1 !== 0 ? d1 : d2;
+        
         const digits = cleanDate.split('').map(Number);
         const n1 = digits.reduce((a, b) => a + b, 0);
         const n2 = String(n1).split('').reduce((a, b) => Number(a) + Number(b), 0);
         const n3 = n1 - (dayFirstDigit * 2);
         const n4 = String(Math.abs(n3)).split('').reduce((a, b) => Number(a) + Number(b), 0);
-        document.getElementById('workNums').innerText = `Числа: ${n1}, ${n2}, ${n3}, ${n4}`;
+        
+        document.getElementById('workNums').innerText = `Числа: ${n1}.${n2} | ${n3}.${n4}`;
+        
         const finalString = cleanDate + n1 + n2 + n3 + n4;
         for (let i = 1; i <= 9; i++) {
             const count = finalString.split('').filter(c => c == i).join('');
-            document.getElementById('c' + i).innerText = count || '---';
+            document.getElementById('c' + i).innerText = count || 'нет';
         }
     }
     function takeScreenshot() {
-        html2canvas(document.getElementById('capture-area'), {backgroundColor: "#111"}).then(canvas => {
+        const area = document.getElementById('capture-area');
+        html2canvas(area, {backgroundColor: "#111", scale: 2}).then(canvas => {
             let link = document.createElement('a');
-            link.download = 'matrix.png';
+            link.download = 'matrix_analysis.png';
             link.href = canvas.toDataURL();
             link.click();
         });
