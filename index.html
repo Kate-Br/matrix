@@ -9,13 +9,12 @@
         :root {
             --primary-violet: #8a2be2; 
             --neon-lilac: #df00ff;   
-            --bg-dark: #05000a; /* Очень темный фиолетовый для фона */
-            --bg-accent: #1a0033; /* Акцент для градиента */
+            --bg-dark: #05000a; 
+            --bg-accent: #1a0033; 
             --text-color: #ffffff; 
         }
 
         body { 
-            /* Красивый градиентный фон */
             background: radial-gradient(circle at center, var(--bg-accent) 0%, var(--bg-dark) 100%);
             background-attachment: fixed;
             color: var(--text-color); 
@@ -33,7 +32,7 @@
             text-align: center; 
             border: 1px solid rgba(223, 0, 255, 0.3); 
             padding: 25px; 
-            background: rgba(10, 10, 10, 0.8); /* Эффект матового стекла */
+            background: rgba(10, 10, 10, 0.8); 
             backdrop-filter: blur(10px);
             border-radius: 30px; 
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(138, 43, 226, 0.2); 
@@ -70,14 +69,8 @@
             width: 85%; 
             outline: none; 
             border-radius: 15px; 
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.1);
             margin-bottom: 25px;
             transition: 0.3s;
-        }
-
-        input:focus {
-            border-color: var(--neon-lilac);
-            box-shadow: 0 0 20px rgba(223, 0, 255, 0.3);
         }
 
         .calc-btn { 
@@ -134,7 +127,6 @@
             align-items: center; 
             border-radius: 18px; 
             background: rgba(255, 255, 255, 0.03); 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .cell-label { 
@@ -157,7 +149,6 @@
             padding-top: 20px; 
             font-size: 10px; 
             color: #666; 
-            line-height: 1.6; 
         }
 
         .author-tg {
@@ -167,8 +158,6 @@
             font-size: 15px;
             font-weight: bold;
             margin-top: 10px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(223, 0, 255, 0.3);
         }
 
         .download-btn { 
@@ -182,10 +171,7 @@
             margin-top: 20px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: 0.3s;
         }
-        .download-btn:hover { color: var(--neon-lilac); border-color: var(--neon-lilac); background: rgba(223,0,255,0.05); }
-
     </style>
 </head>
 <body>
@@ -198,7 +184,7 @@
     <button class="calc-btn" onclick="calculate()">Открыть тайну чисел</button>
     
     <div id="capture-area">
-        <div class="work-numbers" id="workNums">Числа судьбы: —</div>
+        <div class="work-numbers" id="workNums">Дополнительные числа: —</div>
         
         <div class="matrix">
             <div class="cell"><span class="cell-label">Характер</span><span class="cell-value" id="c1">-</span></div>
@@ -239,7 +225,7 @@
         const n3 = n1 - (dayFirstDigit * 2);
         const n4 = String(Math.abs(n3)).split('').reduce((a, b) => Number(a) + Number(b), 0);
         
-        document.getElementById('workNums').innerText = `Код: ${n1}.${n2} | ${n3}.${n4}`;
+        document.getElementById('workNums').innerText = `Дополнительные числа: ${n1}.${n2} | ${n3}.${n4}`;
         
         const finalString = cleanDate + n1 + n2 + n3 + n4;
         for (let i = 1; i <= 9; i++) {
@@ -252,11 +238,10 @@
         const area = document.getElementById('capture-area');
         html2canvas(area, {
             backgroundColor: "#05000a", 
-            scale: 3,
-            borderRadius: 20
+            scale: 3
         }).then(canvas => {
             let link = document.createElement('a');
-            link.download = 'numerology_matrix.png';
+            link.download = 'matrix_analysis.png';
             link.href = canvas.toDataURL();
             link.click();
         });
